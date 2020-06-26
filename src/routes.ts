@@ -4,7 +4,6 @@ import SkillsController from './controllers/SkillsController';
 import CertificatesController from './controllers/CertificatesController';
 
 const routes = express.Router();
-
 const skillsController = new SkillsController();
 const certificatesController = new CertificatesController();
 
