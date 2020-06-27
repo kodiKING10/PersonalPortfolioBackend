@@ -35,28 +35,109 @@
                             "$ref": "#/definitions/Skills"
                         }
                     },
-                    "400":  {
-                        "description": "Bad Request",
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "post": {
+                "parameters": [{
                         "schema": {
-                            
+                            "type": "object"
+                        },
+                        "name":"body",
+                        "in": "body",
+                        "description":"Type the values in JSON format",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Insert a skill",              
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Skills"
                         }
                     }
                 }
             }    
         },
-        "/skills/{id}": {
+        "/skills/{ID}": {       
+
             "get": {
-                "tags": [
-                    "Skills"
-                ],
-                "summary": "Returns one skill", 
                 "parameters": [{
                     "name":"ID",
                     "in": "path",
                     "description":"ID of skill to return",
                     "required": true,
                     "type":"integer"
-                }],             
+                }],  
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Returns one skill",     
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Skills"
+                        }
+                    },
+                    "404":  {
+                        "description": "Skill not found"
+                    }
+                }
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "ID",
+                        "in": "path",
+                        "description": "ID that will be updated",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "schema": {
+                            "type": "object"
+                        },
+                        "name":"body",
+                        "in": "body",
+                        "description":"Insert the values in JSON format",
+                        "required": true
+                    }
+                ],  
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Updates a skill in the system",     
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Skills"
+                        }
+                    },
+                    "404":  {
+                        "description": "Skill not found"
+                    }
+                }
+            },
+            "delete": {
+                "parameters": [{
+                    "name":"ID",
+                    "in": "path",
+                    "description":"ID of skill to delete",
+                    "required": true,
+                    "type":"integer"
+                }],  
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Deletes skill with given ID",     
                 "responses":{
                     "200":  {
                         "description": "If all goes well, it should look like this.",
@@ -69,7 +150,136 @@
                     }
                 }
             }
-        }     
+        },
+        
+        "/certificate": {
+            "get": {
+                "tags": [
+                    "Certificates"
+                ],
+                "summary": "Returns all of my certificates",              
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Certificate"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "post": {
+                "parameters": [{
+                        "schema": {
+                            "type": "object"
+                        },
+                        "name":"body",
+                        "in": "body",
+                        "description":"Type the values in JSON format",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Certificates"
+                ],
+                "summary": "Insert a certificate",              
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Certificate"
+                        }
+                    }
+                }
+            }
+        },
+        "/certificate/{ID}": {
+            "get": {
+                "parameters": [{
+                    "name":"ID",
+                    "in": "path",
+                    "description":"ID of certificate to return",
+                    "required": true,
+                    "type":"integer"
+                }],  
+                "tags": [
+                    "Certificates"
+                ],
+                "summary": "Returns one certificate",     
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Skills"
+                        }
+                    },
+                    "404":  {
+                        "description": "Skill not found"
+                    }
+                }
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "ID",
+                        "in": "path",
+                        "description": "ID that will be updated",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {   
+                        "schema": {
+                            "type": "object"
+                        },
+                        "name":"body",
+                        "in": "body",
+                        "description":"Insert the values in JSON format",
+                        "required": true
+                    }
+                ],  
+                "tags": [
+                    "Certificates"
+                ],
+                "summary": "Updates a certificate in the system",     
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Certificate"
+                        }
+                    },
+                    "404":  {
+                        "description": "Certificate not found"
+                    }
+                }
+            },
+            "delete": {
+                "parameters": [{
+                    "name":"ID",
+                    "in": "path",
+                    "description":"ID of certificate to delete",
+                    "required": true,
+                    "type":"integer"
+                }],  
+                "tags": [
+                    "Certificates"
+                ],
+                "summary": "Deletes certificate with given ID",     
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Certificate"
+                        }
+                    },
+                    "404":  {
+                        "description": "Certificate not found"
+                    }
+                }
+            }
+        }
     },
 
     "consumes": [
@@ -83,9 +293,6 @@
         "Skills": {
             "type": "object",
             "properties": {
-                "ID": {
-                    "type": "integer"
-                },
                 "SkillName": {
                     "type": "string"
                 },
@@ -97,9 +304,6 @@
         "Certificate": {
             "type": "object",
             "properties": {
-                "ID": {
-                    "type": "integer"
-                },
                 "Institution": {
                     "type": "string"
                 },

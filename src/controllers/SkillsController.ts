@@ -20,7 +20,7 @@ class SkillsController {
             const skill = await knex('Skills').where('ID',id).first();
 
             if(!skill){
-                return response.status(400).json({ message: "Skill not found."});
+                return response.status(404).json({ message: "Skill not found."});
             }    
             
             return response.json(skill);
