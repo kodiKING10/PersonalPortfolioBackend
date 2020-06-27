@@ -86,7 +86,7 @@
                             "$ref": "#/definitions/Skills"
                         }
                     },
-                    "404":  {
+                    "204":  {
                         "description": "Skill not found"
                     }
                 }
@@ -121,7 +121,7 @@
                             "$ref": "#/definitions/Skills"
                         }
                     },
-                    "404":  {
+                    "204":  {
                         "description": "Skill not found"
                     }
                 }
@@ -145,7 +145,7 @@
                             "$ref": "#/definitions/Skills"
                         }
                     },
-                    "404":  {
+                    "204":  {
                         "description": "Skill not found"
                     }
                 }
@@ -215,7 +215,7 @@
                             "$ref": "#/definitions/Skills"
                         }
                     },
-                    "404":  {
+                    "204":  {
                         "description": "Skill not found"
                     }
                 }
@@ -250,7 +250,7 @@
                             "$ref": "#/definitions/Certificate"
                         }
                     },
-                    "404":  {
+                    "204":  {
                         "description": "Certificate not found"
                     }
                 }
@@ -274,7 +274,7 @@
                             "$ref": "#/definitions/Certificate"
                         }
                     },
-                    "404":  {
+                    "204":  {
                         "description": "Certificate not found"
                     }
                 }

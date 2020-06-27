@@ -20,7 +20,7 @@ class CertificatesController {
             const certificate = await knex('Certificate').where('ID',id).first();
 
             if(!certificate){
-                return response.status(400).json({ message: "Certificate not found."});
+                return response.status(204).json({ message: "Certificate not found."});
             }    
             
             return response.json(certificate);
@@ -111,7 +111,7 @@ class CertificatesController {
             return response.json({ message: "Certificate updated successfully." });
 
         } catch(error){
-            return response.status(404).json({ message: "Something went wrong." });
+            return response.status(204).json({ message: "Not found." });
         }
     }
 }
