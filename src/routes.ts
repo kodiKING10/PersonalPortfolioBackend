@@ -12,8 +12,12 @@ const certificatesController = new CertificatesController();
 //Rota de arquivos estaticos
 routes.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
+var options = {
+    customCss: '.swagger-ui .topbar { display: none }'
+  };
+
 //Rota do Swagger
-routes.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+routes.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 
 //Funcionalidades
 routes.get('/skills', skillsController.index);

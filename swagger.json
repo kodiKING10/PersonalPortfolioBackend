@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a RESTful API created for learning and professional reasons, here you can find some details of the technologies that were used aswell of instructions on how to use the API in case you want to test it. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger.",
-        "version": "1.0.0",
+        "version": "1.2.5",
         "title": "API - Henrique C Veiga / Portfolio",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
@@ -14,36 +14,109 @@
         }
     },
 
+    "host": "localhost:3333",
+    "basePath": "",
+
+    "schemes": [
+        "http"
+    ],  
+
     "paths": {
         "/skills": {
             "get": {
-                "tags": {
-                    "Skills":""
-                },
-                "summary": "Get all my skills",
-                "description": "Return all the skills from database.",
-                "operationId": "getSkills",
-                "consumes": {
-                    "application/json":"application/json"
-                },
-                "produces": {
-                    "application/json": "application/json"
-                },    
-                "parameters": {
-                 "in": "body",
-                    "name": "body",
-                    "description": "skill object that needs to be added",
-                    "required": true,
-                    "schema": {
-                        "$ref": ""
-                    }
-                },    
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Returns all my skills",              
                 "responses":{
-                    "405":  {
-                        "description": "Invalid input"
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Skills"
+                        }
+                    },
+                    "400":  {
+                        "description": "Bad Request",
+                        "schema": {
+                            
+                        }
                     }
                 }
-            } 
-        }   
+            }    
+        },
+        "/skills/{id}": {
+            "get": {
+                "tags": [
+                    "Skills"
+                ],
+                "summary": "Returns one skill", 
+                "parameters": [{
+                    "name":"ID",
+                    "in": "path",
+                    "description":"ID of skill to return",
+                    "required": true,
+                    "type":"integer"
+                }],             
+                "responses":{
+                    "200":  {
+                        "description": "If all goes well, it should look like this.",
+                        "schema": {
+                            "$ref": "#/definitions/Skills"
+                        }
+                    },
+                    "404":  {
+                        "description": "Skill not found"
+                    }
+                }
+            }
+        }     
+    },
+
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+
+    "definitions": {
+        "Skills": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "integer"
+                },
+                "SkillName": {
+                    "type": "string"
+                },
+                "Percentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Certificate": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "integer"
+                },
+                "Institution": {
+                    "type": "string"
+                },
+                "CourseName": {
+                    "type": "string"
+                },
+                "Date": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "Image": {
+                    "type": "string"
+                }
+            }
+        }
     }
 }
