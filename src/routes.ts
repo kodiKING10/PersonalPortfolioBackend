@@ -1,9 +1,9 @@
 import express from 'express';
 import path from 'path';
-import SkillsController from './controllers/SkillsController';
-import CertificatesController from './controllers/CertificatesController';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../swagger.json';
+import SkillsController from './controllers/SkillsController';
+import CertificatesController from './controllers/CertificatesController';
 
 const routes = express.Router();
 const skillsController = new SkillsController();
