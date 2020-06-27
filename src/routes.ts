@@ -2,6 +2,8 @@ import express from 'express';
 import path from 'path';
 import SkillsController from './controllers/SkillsController';
 import CertificatesController from './controllers/CertificatesController';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../swagger.json';
 
 const routes = express.Router();
 const skillsController = new SkillsController();
@@ -9,6 +11,9 @@ const certificatesController = new CertificatesController();
 
 //Rota de arquivos estaticos
 routes.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+
+//Rota do Swagger
+routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //Rota de Home
 routes.get('/', (request, response) => {
