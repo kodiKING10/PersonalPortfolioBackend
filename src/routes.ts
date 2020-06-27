@@ -13,16 +13,9 @@ const certificatesController = new CertificatesController();
 routes.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 //Rota do Swagger
-routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+routes.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-//Rota de Home
-routes.get('/', (request, response) => {
-    return response.json({
-        Project: "Portfolio v2",
-        Author: "Henrique Cavalcante Veiga"
-    });
-});
-
+//Funcionalidades
 routes.get('/skills', skillsController.index);
 routes.get('/skills/:id', skillsController.show);
 routes.post('/skills', skillsController.create);
