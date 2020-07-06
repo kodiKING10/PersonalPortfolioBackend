@@ -14,7 +14,7 @@
         }
     },
 
-    "host": "https://henriquecavalcanteapi.herokuapp.com/",
+    "host": "henriquecavalcanteapi.herokuapp.com",
     "basePath": "",
 
     "schemes": [
