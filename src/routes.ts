@@ -20,6 +20,12 @@ var options = {
 routes.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 
 //Funcionalidades
+routes.get('/', (request, response) =>{
+  response.json({
+    Author: "Henrique Cavalcante Veiga",
+    "API Documentation URL": "/api"
+  })
+});
 routes.get('/skills', skillsController.index);
 routes.get('/skills/:id', skillsController.show);
 routes.post('/skills', skillsController.create);
