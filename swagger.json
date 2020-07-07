@@ -14,7 +14,7 @@
         }
     },
 
-    "host": "localhost:3333",
+    "host": "henriquecavalcanteapi.herokuapp.com/",
     "basePath": "",
 
     "schemes": [
