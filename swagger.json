@@ -14,12 +14,12 @@
         }
     },
 
-    "host": "henriquecavalcanteapi.herokuapp.com",
+    "host": "localhost:3333",
     "basePath": "",
 
     "schemes": [
-        "http",
-        "https"
+        "https",
+        "http"
     ],  
 
     "paths": {
