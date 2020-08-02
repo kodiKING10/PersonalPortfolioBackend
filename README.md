@@ -8,6 +8,7 @@ creating something that adds value to my profile. The front-end is also availabl
 ## Technologies and tools
 
 * Node.js
+* Express
 * Typescript
 * SQLite
 * API Restful
